@@ -1,0 +1,44 @@
+
+extends layout.pug
+
+
+block head
+  header.intro-header(style="background-image: url('https://source.unsplash.com/random')")
+    .container-fluid(style="background-color: rgba(0, 0, 0, 0.3);")
+      .row
+        .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+          .site-heading
+            h1= titre
+            hr.small
+            span.subheading Yo
+
+block content
+  .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+    form.form-horizontal(action='article', method='post')
+      fieldset
+        // Form Name
+        // Text input
+        .form-group.col-xs-12.floating-label-form-group.controls
+          label.col-md-4.control-label(for='Titre') Titre
+          .col-md-4
+            input#Titre.form-control.input-md(name='Titre', type='text', placeholder='Titre', required='')
+        // Text input
+        .form-group.col-xs-12.floating-label-form-group.controls
+          label.col-md-4.control-label(for='Auteur') Auteur
+          .col-md-4
+            input#Auteur.form-control.input-md(name='Auteur', type='text', placeholder='Auteur', required='')
+        // Text input
+        .form-group.col-xs-12.floating-label-form-group.controls
+          label.col-md-4.control-label(for='Image') Image
+          .col-md-4
+            input#Image.form-control.input-md(name='Image', type='text', placeholder='Image', required='')
+        // Textarea
+        .form-group.col-xs-12.floating-label-form-group.controls
+          label.col-md-4.control-label(for='contenue') Article
+          .col-md-4
+            textarea#Article.form-control(name='contenue') Article
+        // Button
+        .form-group
+          label.col-md-4.control-label(for='submit')
+          .col-md-4
+            button#submit.btn.btn-default(name='submit') Envoyer

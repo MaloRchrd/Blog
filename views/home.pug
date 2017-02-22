@@ -1,0 +1,34 @@
+
+extends layout.pug
+
+block head
+  header.intro-header(style="background-image: url('https://source.unsplash.com/random')")
+    .container-fluid(style="background-color: rgba(0, 0, 0, 0.3);")
+      .row
+        .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+          .site-heading
+            h1 Blog De Malo
+            hr.small
+            span.subheading Clean Blog Fully Powered by JavaScript
+
+
+
+
+
+block content
+  .container
+    .row
+    each post in posts
+      .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+        .post-preview
+          a(href='/article/' + post._id)
+            img.img-responsive.img-rounded(src='https://source.unsplash.com/category/technology/800x450', alt='')
+            h2.post-title= post.titre
+              |
+            h3.post-subtitle= post.contenue
+              |
+          p.post-meta
+            | Posted by 
+            a(href='#')= post.auteur
+            p= post.date
+        hr
