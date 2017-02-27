@@ -1,0 +1,34 @@
+extends layout.pug
+
+block nav
+  // Navigation
+  nav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+    .container-fluid
+      // Brand and toggle get grouped for better mobile display
+      .navbar-header.page-scroll
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+          span.sr-only Toggle navigation
+          |                     Menu
+          i.fa.fa-bars
+        a.navbar-brand(href='../') Blog de Malo
+      // Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='../') Home
+            li
+              a(href='../login') Login
+            li
+              a(href='../signup') Sign-up
+
+      // /.navbar-collapse
+    // /.container
+
+block head
+  header.intro-header(style="background-image: url('https://source.unsplash.com/random')")
+    .container-fluid(style="background-color: rgba(0, 0, 0, 0.3);")
+      .row
+        .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
+          .site-heading
+            h1= message
+            hr.small

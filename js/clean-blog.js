@@ -11,7 +11,7 @@ $(function() {
 
 // Navigation Scripts to Show Header on Scroll-Up
 jQuery(document).ready(function($) {
-    var MQL = 1170;
+    var MQL = 1000;
 
     //primary navigation slide-in effect
     if ($(window).width() > MQL) {
@@ -37,4 +37,34 @@ jQuery(document).ready(function($) {
                 this.previousTop = currentTop;
             });
     }
+
+    $(document).on('scroll', function functionName() {
+      var height = $(window).height();
+
+      var currenTop = $(window).scrollTop();
+      var width = $(window).width();
+      var loaderSize = ((currenTop/(height)))*(width+75);
+
+      console.log(height,currenTop, width, loaderSize);
+      $('div.loader').width((loaderSize) + 'px')
+    });
+
+
+
+
 });
+
+var goNext = function() {
+  var url = window.location.href;
+  var pathname = window.location.pathname;
+  // console.log(url,pathname );
+  if (pathname =='/') {
+    window.location.href = "../page/2";
+  } else {
+    var page = pathname.slice(-1);
+    // console.log(page);
+    page = parseFloat(page) + 1
+    window.location.href = "../page/" + page;
+  }
+
+}

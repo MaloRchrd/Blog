@@ -7,9 +7,11 @@ html
     meta(name='author', content='')
     title Blog de malo
     // Bootstrap Core CSS
-    link(href='../vendor/bootstrap/css/bootstrap.min.css', rel='stylesheet')
+    link(href='../vendor/bootstrap/css/bootstrap.css', rel='stylesheet')
     // Theme CSS
-    link(href='../css/clean-blog.min.css', rel='stylesheet')
+    link(href='../css/clean-blog.css', rel='stylesheet')
+    // addons CSS
+    link(href='../css/blog.css', rel='stylesheet')
     // Custom Fonts
     link(href='../vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
     link(href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic', rel='stylesheet', type='text/css')
@@ -22,63 +24,55 @@ html
 
   body
     block nav
-    // Navigation
-    nav.navbar.navbar-default.navbar-custom.navbar-fixed-top
-      .container-fluid
-        // Brand and toggle get grouped for better mobile display
-        .navbar-header.page-scroll
-          button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
-            span.sr-only Toggle navigation
-            |                     Menu
-            i.fa.fa-bars
-          a.navbar-brand(href='../index') Blog de Malo
-        // Collect the nav links, forms, and other content for toggling
-        #bs-example-navbar-collapse-1.collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right
-            li
-              a(href='../index') Home
-            li
-              a(href='../about') About
-            li
-              a(href='../form') Poster un article
-            li
-              a(href='../login') Login
-            li
-              a(href='../signup') Sign-up
-        // /.navbar-collapse
-      // /.container
+      // Navigation
+      nav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+        .container-fluid
+          // Brand and toggle get grouped for better mobile display
+          .navbar-header.page-scroll
+            button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+              span.sr-only Toggle navigation
+              |                     Menu
+              i.fa.fa-bars
+            a.navbar-brand(href='../') Blog de Malo
+          // Collect the nav links, forms, and other content for toggling
+          #bs-example-navbar-collapse-1.collapse.navbar-collapse
+            ul.nav.navbar-nav.navbar-right
+              li
+                a(href='../') Home
+              if session
+                li
+                  a(href='../user/form') Poster un article
+                li
+                  a(href='../user/logout') Log out
+              else
+                li
+                  a(href='../login') Login
+                li
+                  a(href='../signup') Sign-up
+
+          // /.navbar-collapse
+        // /.container
 
     block head
     block message
     block content
     block foot
     footer
-      .container
-        .row
-          .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-            ul.list-inline.text-center
-              li
-                a(href='#')
-                  span.fa-stack.fa-lg
-                    i.fa.fa-circle.fa-stack-2x
-                    i.fa.fa-twitter.fa-stack-1x.fa-inverse
-              li
-                a(href='#')
-                  span.fa-stack.fa-lg
-                    i.fa.fa-circle.fa-stack-2x
-                    i.fa.fa-facebook.fa-stack-1x.fa-inverse
-              li
-                a(href='#')
-                  span.fa-stack.fa-lg
-                    i.fa.fa-circle.fa-stack-2x
-                    i.fa.fa-github.fa-stack-1x.fa-inverse
-            p.copyright.text-muted Copyright © Malo 2017
+        .wrapper
+          a(href='https://www.linkedin.com/in/malorichard/', target='_blank')
+            i.fa.fa-2x.fa-linkedin-square
+          a(href='https://github.com/MaloRchrd', target='_blank')
+            i.fa.fa-2x.fa-github
+          a(href='https://twitter.com/Malo_Richard', target='_blank')
+            i.fa.fa-2x.fa-twitter-square
+        p.copyright.text-muted Copyright © Malo 2017
 
     script(src='../vendor/jquery/jquery.min.js')
     // Bootstrap Core JavaScript
     script(src='../vendor/bootstrap/js/bootstrap.min.js')
     // Contact Form JavaScript
+    script(src='../js/border.js')
     script(src='../js/jqBootstrapValidation.js')
     script(src='../js/contact_me.js')
     // Theme JavaScript
-    script(src='../js/clean-blog.min.js')
+    script(src='../js/clean-blog.js')

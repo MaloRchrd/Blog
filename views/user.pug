@@ -6,10 +6,12 @@ block head
       .row
         .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
           .site-heading
-            h1= post.titre
+            h1
+              |Welcome
+            h1= session.username
             hr.small
-            span.subheading= post.auteur
-            span.subheading= post.date
+
+
 
 
 block content
@@ -17,5 +19,4 @@ block content
     .row
       .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
         .post-preview
-          p.post-subtitle= post.contenue
-            |
+          h3.post-subtitle= session.password

@@ -2,7 +2,7 @@ extends layout.pug
 
 block head
   header.intro-header(style="background-image: url('https://source.unsplash.com/random')")
-    .container-fluid(style="background-color: rgba(0, 0, 0, 0.3);")
+    .container-fluid(style="background-color: rgba(41, 170, 227, 0.5);")
       .row
         .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
           .site-heading
@@ -15,28 +15,27 @@ block content
   .container
   .row
     .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
-      p
-        | To start publishing just fill in this form.
-      form#contactForm(name='sentMessage', novalidate='')
+      p To start publishing just fill in this form.
+      form#contactForm(action='user/register', method='post' name='singup', autocomplete='off')
         .row.control-group
           .form-group.col-xs-12.floating-label-form-group.controls
             label Name
-            input#name.form-control(type='text', placeholder='Name', name='Name', required='', data-validation-required-message='Please enter your name.')
+            input#name.form-control(type='text', autocomplete='off', placeholder='Name', name='name', required='', data-validation-required-message='Please enter your full name.')
             p.help-block.text-danger
         .row.control-group
           .form-group.col-xs-12.floating-label-form-group.controls
             label Username
-            input#username.form-control(type='text', placeholder='Username', name='Username', required='', data-validation-required-message='Please enter your name.')
+            input#username.form-control(type='text', autocomplete='off', placeholder='Username', name='username', required='', data-validation-required-message='Please enter your username.')
             p.help-block.text-danger
         .row.control-group
           .form-group.col-xs-12.floating-label-form-group.controls
             label Email Address
-            input#email.form-control(type='email', placeholder='Email Address', name='email', required='', data-validation-required-message='Please enter your email address.')
+            input#email.form-control(type='email', autocomplete='nope', placeholder='Email Address', name='email', required='', data-validation-required-message='Please enter your email address.')
             p.help-block.text-danger
         .row.control-group
           .form-group.col-xs-12.floating-label-form-group.controls
             label Password
-            input#emailconfirm.form-control(type='password', placeholder='Password', name='password', required='', data-validation-required-message='Please enter your email address.')
+            input#emailconfirm.form-control(autocomplete='new-password', type='password', placeholder='Password', name='password', required='', data-validation-required-message='Please enter your Password.')
             p.help-block.text-danger
         br
         #success

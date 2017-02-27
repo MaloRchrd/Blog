@@ -1,13 +1,48 @@
 
 extends layout.pug
 
+block nav
+  // Navigation
+  nav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+    .container-fluid
+      // Brand and toggle get grouped for better mobile display
+      .navbar-header.page-scroll
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+          span.sr-only Toggle navigation
+          |                     Menu
+          i.fa.fa-bars
+        a.navbar-brand(href='../') Blog de Malo
+      // Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='../') Home
+          if session.username
+            li
+              a(href='../user/form') Poster un article
+            li
+              a(href='../user/logout') Log out
+          else
+            li
+              a(href='../login') Login
+            li
+              a(href='../signup') Sign-up
+
+      // /.navbar-collapse
+    // /.container
+
+
+
 block head
-  header.intro-header(style="background-image: url('https://source.unsplash.com/random')")
-    .container-fluid(style="background-color: rgba(0, 0, 0, 0.3);")
+  header.intro-header(style="background-image: url('../img/home-bg.jpg')")
+    .container-fluid(style="background-color: rgba(41, 170, 227, 0.5);")
       .row
         .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
           .site-heading
-            h1 Blog De Malo
+            if session.username
+              h1= session.username
+            else
+              h1 welcome on the blog
             hr.small
             span.subheading Clean Blog Fully Powered by JavaScript
 
@@ -22,13 +57,20 @@ block content
       .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
         .post-preview
           a(href='/article/' + post._id)
-            img.img-responsive.img-rounded(src='https://source.unsplash.com/category/technology/800x450', alt='')
+            img.img-responsive.img-rounded(src='../img/post-sample-image.jpg', alt='')
             h2.post-title= post.titre
               |
             h3.post-subtitle= post.contenue
               |
           p.post-meta
-            | Posted by 
+            | Posted by&nbsp;
             a(href='#')= post.auteur
-            p= post.date
+            | On&nbsp;
+            span= post.date
         hr
+
+
+block foot
+  .form-group.col-xs-12
+  button.btn.btn-default(onclick='goNext();', type='submit') Next Artices
+  .loader

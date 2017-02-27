@@ -1,9 +1,9 @@
 {
   "name": "clean-blog",
-  "title": "Clean Blog",
-  "version": "3.3.7+1",
+  "title": "Clean fullstack Js Blog",
+  "version": "0.1.0",
   "homepage": "http://startbootstrap.com/template-overviews/clean-blog",
-  "author": "Start Bootstrap",
+  "author": "Malo Richard",
   "license": {
     "type": "MIT",
     "url": "https://github.com/BlackrockDigital/startbootstrap/blob/gh-pages/LICENSE"
@@ -25,6 +25,7 @@
     "url": "https://github.com/BlackrockDigital/startbootstrap-clean-blog.git"
   },
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "body-parser": "^1.16.1",
     "connect-flash": "^0.1.1",
     "cookie-parser": "^1.4.3",

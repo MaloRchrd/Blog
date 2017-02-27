@@ -1,6 +1,36 @@
 
 extends layout.pug
 
+block nav
+  // Navigation
+  nav.navbar.navbar-default.navbar-custom.navbar-fixed-top
+    .container-fluid
+      // Brand and toggle get grouped for better mobile display
+      .navbar-header.page-scroll
+        button.navbar-toggle(type='button', data-toggle='collapse', data-target='#bs-example-navbar-collapse-1')
+          span.sr-only Toggle navigation
+          |                     Menu
+          i.fa.fa-bars
+        a.navbar-brand(href='../') Blog de Malo
+      // Collect the nav links, forms, and other content for toggling
+      #bs-example-navbar-collapse-1.collapse.navbar-collapse
+        ul.nav.navbar-nav.navbar-right
+          li
+            a(href='../') Home
+          if session.username
+            li
+              a(href='../user/form') Poster un article
+            li
+              a(href='../user/logout') Log out
+          else
+            li
+              a(href='../login') Login
+            li
+              a(href='../signup') Sign-up
+
+      // /.navbar-collapse
+    // /.container
+
 
 block head
   header.intro-header(style="background-image: url('https://source.unsplash.com/random')")
@@ -19,26 +49,25 @@ block content
         // Form Name
         // Text input
         .form-group.col-xs-12.floating-label-form-group.controls
-          label.col-md-4.control-label(for='Titre') Titre
+          label.col-md-1.control-label(for='Titre') Titre
           .col-md-4
             input#Titre.form-control.input-md(name='Titre', type='text', placeholder='Titre', required='')
         // Text input
         .form-group.col-xs-12.floating-label-form-group.controls
-          label.col-md-4.control-label(for='Auteur') Auteur
+          label.col-md-1.control-label(for='Auteur') Auteur
           .col-md-4
             input#Auteur.form-control.input-md(name='Auteur', type='text', placeholder='Auteur', required='')
         // Text input
         .form-group.col-xs-12.floating-label-form-group.controls
-          label.col-md-4.control-label(for='Image') Image
+          label.col-md-1.control-label(for='Image') Image
           .col-md-4
             input#Image.form-control.input-md(name='Image', type='text', placeholder='Image', required='')
         // Textarea
         .form-group.col-xs-12.floating-label-form-group.controls
-          label.col-md-4.control-label(for='contenue') Article
+          label.col-md-1.control-label(for='contenue') Article
           .col-md-4
-            textarea#Article.form-control(name='contenue') Article
+            textarea#Article.high.form-control(name='contenue') Article
         // Button
         .form-group
-          label.col-md-4.control-label(for='submit')
-          .col-md-4
-            button#submit.btn.btn-default(name='submit') Envoyer
+          .col-md-6.col-md-offset-4
+            button#submit.btn.btn-info(name='submit') Envoyer
