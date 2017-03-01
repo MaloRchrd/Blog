@@ -50,6 +50,7 @@ router.get('/page/:page', function(req, res) {
 
 // login / singup
 router.get('/login', function(req, res) {
+  
   // console.log("Cookies: ", req.cookies)
   // console.log(req.session);
   res.render('login', {titre:'Login' , session : req.session}) // render  index using pug

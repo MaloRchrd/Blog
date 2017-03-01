@@ -3,6 +3,7 @@ const session = require('express-session');
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 var mongo = require('mongodb')
+var helmet = require('helmet')
 var app = express();
 var db = require('./db');
 
@@ -12,6 +13,7 @@ app.use(session({
     resave: false,
 }));
 
+app.use(helmet())
 
 var URL = 'mongodb://localhost:27017/blog';
 var connectDB;

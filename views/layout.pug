@@ -13,9 +13,14 @@ html
     // addons CSS
     link(href='../css/blog.css', rel='stylesheet')
     // Custom Fonts
-    link(href='../vendor/font-awesome/css/font-awesome.min.css', rel='stylesheet', type='text/css')
+    script(src='https://use.fontawesome.com/0d43dcdbef.js')
     link(href='https://fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic', rel='stylesheet', type='text/css')
     link(href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800', rel='stylesheet', type='text/css')
+    // tiny mce
+    script(src='//cloud.tinymce.com/stable/tinymce.min.js?apiKey=4m6kqrt03q75iol4l85n9a0ge0ks92bnjrj8949en7xfxk7b')
+    script.
+
+      tinymce.init({selector:'textarea'});
     // HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries
     // WARNING: Respond.js doesn't work if you view the page via file://
     //if lt IE 9
@@ -71,7 +76,7 @@ html
     // Bootstrap Core JavaScript
     script(src='../vendor/bootstrap/js/bootstrap.min.js')
     // Contact Form JavaScript
-    script(src='../js/border.js')
+    script(src='../js/title-annimation.js')
     script(src='../js/jqBootstrapValidation.js')
     script(src='../js/contact_me.js')
     // Theme JavaScript

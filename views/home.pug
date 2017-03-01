@@ -34,13 +34,13 @@ block nav
 
 
 block head
-  header.intro-header(style="background-image: url('../img/home-bg.jpg')")
+  header.intro-header(style="background-image: url('https://source.unsplash.com/collection/584172')")
     .container-fluid(style="background-color: rgba(41, 170, 227, 0.5);")
       .row
         .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
           .site-heading
             if session.username
-              h1= session.username
+              h1#yo #{session.username}
             else
               h1 welcome on the blog
             hr.small
@@ -56,17 +56,18 @@ block content
     each post in posts
       .col-lg-8.col-lg-offset-2.col-md-10.col-md-offset-1
         .post-preview
-          a(href='/article/' + post._id)
-            img.img-responsive.img-rounded(src='../img/post-sample-image.jpg', alt='')
-            h2.post-title= post.titre
-              |
-            h3.post-subtitle= post.contenue
-              |
-          p.post-meta
-            | Posted by&nbsp;
-            a(href='#')= post.auteur
-            | On&nbsp;
-            span= post.date
+          .img-container
+            a(href='/article/' + post._id)
+              img.img-responsive.img-rounded(src='https://source.unsplash.com/random', alt='')
+              h2.post-title= post.titre
+            span.articleDate
+              i.fa.fa-calendar-check-o(aria-hidden='true')
+              | #{post.date.getDay()}/#{post.date.getMonth()}/#{post.date.getFullYear()}
+            a.articleAuthor(href='#')
+              i.fa.fa-user-circle(aria-hidden='true')
+              | #{post.auteur}
+          .post-subtitle
+            |!{post.contenue.split(" ").slice(0,51).join(" ")}
         hr
 
 

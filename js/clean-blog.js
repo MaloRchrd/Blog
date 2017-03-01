@@ -39,11 +39,14 @@ jQuery(document).ready(function($) {
     }
 
     $(document).on('scroll', function functionName() {
-      var height = $(window).height();
-
-      var currenTop = $(window).scrollTop();
-      var width = $(window).width();
-      var loaderSize = ((currenTop/(height)))*(width+75);
+      var height = $(window).innerHeight();
+      if ($(window).scrollTop() == 0) {
+        var currenTop = $(window).scrollTop();
+      }else{
+      var currenTop = $(window).scrollTop() + window.innerHeight;
+      }
+      var width = $(window).innerWidth();
+      var loaderSize = ((currenTop/(height)))*(width);
 
       console.log(height,currenTop, width, loaderSize);
       $('div.loader').width((loaderSize) + 'px')
